@@ -1,0 +1,54 @@
+steps:
+# This step builds the container image.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args:
+  - 'build'
+  - '--no-cache'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/hmt/flight-logbook/dev/svc:$SHORT_SHA'
+  - '.'
+  
+# This step pushes the image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args:
+  - 'push'
+  - 'gcr.io/$PROJECT_ID/hmt/flight-logbook/dev/svc:$SHORT_SHA'
+
+#Docker Tester
+#- name: 'gcr.io/cloud-builders/gcloud'
+#  id: Cloud-Run
+#  args:
+#  - 'beta'
+#  - 'run'
+#  - 'deploy'
+#  - 'docker-tester-user_counter'
+#  - '--image'
+#  - 'gcr.io/$PROJECT_ID/hmt/user_counter/prd:$SHORT_SHA'
+#  - '--allow-unauthenticated'
+#  - '--region=us-central1'
+#  - '--platform=managed'
+
+##CI Tester
+#- name: 'gcr.io/cloud-builders/curl'
+#  id: Curl-Test
+#  args:
+#  - 'https://docker-tester-dau.bwing3.app'
+
+#Cloud Run Deploy
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Cloud-Run-Deploy
+  args:
+  - 'beta'
+  - 'run'
+  - 'deploy'
+  - 'flight-logbook'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/hmt/flight-logbook/dev/svc:$SHORT_SHA'
+  - '--allow-unauthenticated'
+  - '--region=asia-northeast1'
+  - '--platform=managed'
+
+#TAG
+tags : [ 'flight-logbook', 'dev', 'svc' ]

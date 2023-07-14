@@ -1,0 +1,12 @@
+{"bucket_paths": [
+"events/2023/02/000000000000.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000001.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000002.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000003.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000004.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000005.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000006.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000007.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000008.flightboard_v1_pageviews_union_events.csv",
+"events/2023/02/000000000009.flightboard_v1_pageviews_union_events.csv"
+]}
